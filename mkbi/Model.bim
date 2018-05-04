@@ -54,6 +54,12 @@
             "name": "test",
             "dataType": "int64",
             "isDataTypeInferred": true
+          },
+          {
+            "type": "calculated",
+            "name": "ggg",
+            "dataType": "int64",
+            "isDataTypeInferred": true
           }
         ],
         "partitions": [
