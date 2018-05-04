@@ -15,7 +15,6 @@
           "authentication": null,
           "query": null
         },
-        "options": {},
         "credential": {
           "AuthenticationKind": "ServiceAccount",
           "kind": "File",
@@ -49,6 +48,12 @@
             "name": "IND_URL",
             "dataType": "string",
             "sourceColumn": "IND_URL"
+          },
+          {
+            "type": "calculated",
+            "name": "test",
+            "dataType": "int64",
+            "isDataTypeInferred": true
           }
         ],
         "partitions": [
