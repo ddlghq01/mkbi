@@ -51,7 +51,7 @@
           },
           {
             "type": "calculated",
-            "name": "test",
+            "name": "abc",
             "dataType": "int64",
             "isDataTypeInferred": true
           }
