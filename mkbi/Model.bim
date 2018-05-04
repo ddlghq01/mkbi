@@ -1,0 +1,79 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1400,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "File/C:\\Makro_project\\data\\INDICATOR csv",
+        "connectionDetails": {
+          "protocol": "file",
+          "address": {
+            "path": "C:\\Makro_project\\data\\INDICATOR.csv"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "options": {},
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "File",
+          "path": "c:\\makro_project\\data\\indicator.csv"
+        },
+        "contextExpression": [
+          "let",
+          "    #\"0001\" = Csv.Document(..., [Delimiter = \",\", Columns = 3, Encoding = 1252, QuoteStyle = QuoteStyle.None]),",
+          "    #\"0002\" = Table.PromoteHeaders(#\"0001\", [PromoteAllScalars = true]),",
+          "    #\"0003\" = Table.TransformColumnTypes(#\"0002\", {{\"IND_ID\", Int64.Type}, {\"IND_NAME\", type text}, {\"IND_URL\", type text}})",
+          "in",
+          "    #\"0003\""
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "INDICATOR",
+        "columns": [
+          {
+            "name": "IND_ID",
+            "dataType": "int64",
+            "sourceColumn": "IND_ID"
+          },
+          {
+            "name": "IND_NAME",
+            "dataType": "string",
+            "sourceColumn": "IND_NAME"
+          },
+          {
+            "name": "IND_URL",
+            "dataType": "string",
+            "sourceColumn": "IND_URL"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source=#\"File/C:\\Makro_project\\data\\INDICATOR csv\"",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "500"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
